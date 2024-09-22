@@ -30,7 +30,11 @@ export class ProductsService {
   }
 
   findByProvider(id: string) {
-    return "ok"
+    return this.productRepositoy.findBy({
+      provider:{
+        providerId: id,
+      }
+    })
   }
 
   findOne(id: string) {
