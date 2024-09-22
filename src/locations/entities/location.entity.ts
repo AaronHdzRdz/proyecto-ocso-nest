@@ -11,6 +11,6 @@ export class Location {
   @Column('text')
   locationAddress: string;
 
-  @Column('simple-array')  
+  @Column('array')  
   locationLatLng: number[];
 }
