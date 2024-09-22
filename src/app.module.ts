@@ -4,13 +4,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EmployeesModule } from './employees/employees.module';
 import { ProductsModule } from './products/products.module';
+import { ProvidersModule } from './providers/providers.module';
 
 
 @Module({
   imports: [
       TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.hpst,
+      host: process.env.host,
       port: +process.env.port,
       username: 'postgres',
       password: "TheBestPassword",
@@ -18,7 +19,7 @@ import { ProductsModule } from './products/products.module';
       entities: [],
       autoLoadEntities: true,
       synchronize: true,
-  }),EmployeesModule, ProductsModule],
+  }),EmployeesModule, ProductsModule, ProvidersModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -21,13 +21,16 @@ export class ProductsService {
   }
 
   async findAll(): Promise<Product[]> {
-    return this.productRepositoy.find();
+    return this.productRepositoy.find({
+      loadEagerRelations: true,
+      relations: {
+        provider: true,
+      },
+    });
   }
 
   findByProvider(id: string) {
-    const productsFound = this.products.filter((product) => product.provider === id);
-    if (productsFound.length === 0) throw new NotFoundException();
-    return productsFound;
+    return "ok"
   }
 
   findOne(id: string) {
