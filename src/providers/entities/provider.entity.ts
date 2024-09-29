@@ -7,13 +7,15 @@ export class Provider {
     providerId: string;
     @Column('text')
     providerName: string;
-    @Column('text')
+    @Column('text', {
+        unique: true,
+    })
     providerEmail: string;
     @Column({
         type: 'text',
         nullable: true
     })
     providerPhoneNumber: string;
-    @OneToMany(()=> Product, (product)=> product.provider)
-        products: Product[];
+    @OneToMany(() => Product, (product) => product.provider)
+    products: Product[];
 }
