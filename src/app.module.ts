@@ -13,7 +13,7 @@ import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-      TypeOrmModule.forRoot({
+    TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.host,
       port: +process.env.port,
@@ -23,8 +23,8 @@ import { AuthModule } from './auth/auth.module';
       entities: [],
       autoLoadEntities: true,
       synchronize: true,
-  }),EmployeesModule, ProductsModule, ProvidersModule, ManagersModule, LocationsModule, RegionsModule, AuthModule],
+    }), EmployeesModule, ProductsModule, ProvidersModule, ManagersModule, LocationsModule, RegionsModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
