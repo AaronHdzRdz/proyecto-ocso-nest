@@ -12,10 +12,11 @@ export class EmployeesService {
     private employeeRepository: Repository<Employee>
   ){}
 
-  create(createEmployeeDto: CreateEmployeeDto): Promise<Employee> {
-    const employee = this.employeeRepository.create(createEmployeeDto);
-    return this.employeeRepository.save(employee);
+  async create(createEmployeeDto: CreateEmployeeDto) {
+    const employee = await this.employeeRepository.save(createEmployeeDto)
+    return employee;
   }
+
 
   findAll(): Promise<Employee[]> {
     return this.employeeRepository.find();
