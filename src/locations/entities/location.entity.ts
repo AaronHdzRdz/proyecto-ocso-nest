@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import e from 'express';
 import { Employee } from 'src/employees/entities/employee.entity';
 import { Manager } from 'src/managers/entities/manager.entity';
@@ -6,6 +7,7 @@ import { Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne,
 
 @Entity()
 export class Location {
+  @ApiProperty()
   @PrimaryGeneratedColumn('increment')
   locationId: number;
 
