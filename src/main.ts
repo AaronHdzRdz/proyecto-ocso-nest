@@ -7,12 +7,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
     .setTitle('Ocso API')
-    .setDescription('API for Ocso management system')
-    .setVersion('0.7')
-    .addTag('ocso')
+    .setDescription('Api for ocso management')
+    .setVersion('0.9')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('', app, document);
+  SwaggerModule.setup('api', app, document);
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,
