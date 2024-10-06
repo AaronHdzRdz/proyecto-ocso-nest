@@ -1,21 +1,8 @@
 import { IsEmail, IsOptional, IsString, MaxLength } from "class-validator";
 import { Employee } from "../entities/employee.entity";
-import { Location } from "src/locations/entities/location.entity";
 import { ApiProperty, ApiPropertyOptional, ApiTags } from "@nestjs/swagger";
+import { Location } from "src/locations/entities/location.entity";
 
-export class LocationEmployeeDto extends Location {
-    @ApiProperty()
-    locationId: number;
-
-    @ApiPropertyOptional()
-    locationName: string;
-
-    @ApiPropertyOptional()
-    locationLatLng: number[];
-
-    @ApiPropertyOptional()
-    locationAddress: string;
-}
 
 export class CreateEmployeeDto extends Employee {
     @ApiProperty()
@@ -41,7 +28,7 @@ export class CreateEmployeeDto extends Employee {
     @ApiProperty()
     @IsOptional()
     @IsString()
-    location: LocationEmployeeDto;
+    location: Location;
 
     @ApiProperty()
     @IsOptional()

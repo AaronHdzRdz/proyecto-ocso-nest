@@ -6,10 +6,11 @@ import { Employee } from './entities/employee.entity';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ROLES } from 'src/auth/constans/roles.constants';
 import { Auth } from 'src/auth/decorators/auth.decorator';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ApiAuth } from 'src/auth/decorators/api.decorator';
 
 @ApiAuth()
+@ApiTags("Employees")
 @Controller('employees')
 export class EmployeesController {
   constructor(private readonly employeesService: EmployeesService) { }
